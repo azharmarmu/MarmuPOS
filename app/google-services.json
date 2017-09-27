@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "441830925254",
+    "firebase_url": "https://marmu-pos.firebaseio.com",
+    "project_id": "marmu-pos",
+    "storage_bucket": "marmu-pos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441830925254:android:060b0b2e57061b25",
+        "android_client_info": {
+          "package_name": "azhar.sudha.marmupos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441830925254-176s3ep1ii35hc163fvgb653vg8chvjd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "azhar.sudha.marmupos",
+            "certificate_hash": "dc737a85bc3a15b554f8f9ea989957e30086d0d7"
+          }
+        },
+        {
+          "client_id": "441830925254-r69dj2mv8dqf8dhrurv9fl7s5cj5qrqp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjcSgD3TmiA-1vwyVIFMhXbbMCFQoWVjk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441830925254-r69dj2mv8dqf8dhrurv9fl7s5cj5qrqp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

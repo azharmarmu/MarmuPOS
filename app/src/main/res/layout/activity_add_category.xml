@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLightGreen"
+    android:padding="@dimen/_8dp"
+    tools:context="azhar.sudha.marmupos.category.AddCategoryActivity">
+
+    <LinearLayout
+        android:id="@+id/category_name_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:background="@drawable/box_white"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/category_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_8dp"
+                android:layout_marginEnd="@dimen/_16dp"
+                android:layout_marginStart="@dimen/_16dp"
+                android:hint="@string/category_name"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/create_new_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box_white"
+            android:gravity="center"
+            android:padding="@dimen/_16dp"
+            android:text="@string/create_new_item"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category_color_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/category_name_layout"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:background="@drawable/box_white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:text="@string/category_color"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_16dp"
+            android:layout_marginEnd="@dimen/_16dp"
+            android:layout_marginStart="@dimen/_16dp"
+            android:text="@string/this_color_will_automatically_apply_to_all_the_items_under_the_categories_for_which_no_custom_color_is_set"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textStyle="italic" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorLightGray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_4dp"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <ImageView
+                    android:id="@+id/color_grey"
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="@dimen/_75dp"
+                    android:layout_marginEnd="@dimen/_4dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorGray"
+                    android:contentDescription="@string/app_name"
+                    android:onClick="colorClick"
+                    android:src="@drawable/ic_check_circle" />
+
+                <ImageView
+                    android:id="@+id/color_red"
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="@dimen/_75dp"
+                    android:layout_marginEnd="@dimen/_4dp"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorRed"
+                    android:contentDescription="@string/app_name"
+                    android:onClick="colorClick" />
+
+                <ImageView
+                    android:id="@+id/color_green"
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="@dimen/_75dp"
+                    android:layout_marginEnd="@dimen/_4dp"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorGreen"
+                    android:contentDescription="@string/app_name"
+                    android:onClick="colorClick" />
+
+                <ImageView
+                    android:id="@+id/color_blue"
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="@dimen/_75dp"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorBlue"
+                    android:contentDescription="@string/app_name"
+                    android:onClick="colorClick" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4dp"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <ImageView
+                    android:id="@+id/color_yellow"
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="@dimen/_75dp"
+                    android:layout_marginEnd="@dimen/_4dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorYellow"
+                    android:contentDescription="@string/app_name"
+                    android:onClick="colorClick" />
+
+                <ImageView
+                    android:id="@+id/color_sky"
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="@dimen/_75dp"
+                    android:layout_marginEnd="@dimen/_4dp"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorSky"
+                    android:contentDescription="@string/app_name"
+                    android:onClick="colorClick" />
+
+                <ImageView
+                    android:id="@+id/color_orange"
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="@dimen/_75dp"
+                    android:layout_marginEnd="@dimen/_4dp"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorOrange"
+                    android:contentDescription="@string/app_name"
+                    android:onClick="colorClick" />
+
+                <ImageView
+                    android:id="@+id/color_purple"
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="@dimen/_75dp"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorPurple"
+                    android:contentDescription="@string/app_name"
+                    android:onClick="colorClick" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

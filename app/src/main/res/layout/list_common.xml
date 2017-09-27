@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sales_man_details"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/box_white"
+    android:padding="@dimen/_8dp">
+
+
+    <TextView
+        android:id="@+id/item_color"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@color/colorLightGray" />
+
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_16dp"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_toEndOf="@+id/item_color"
+        android:layout_toStartOf="@+id/item_price"
+        android:padding="@dimen/_4dp"
+        android:text=""
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textSize="@dimen/_16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/item_qty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_name"
+        android:layout_marginEnd="@dimen/_16dp"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_toEndOf="@+id/item_color"
+        android:layout_toStartOf="@+id/item_price"
+        android:padding="@dimen/_4dp"
+        android:text=""
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+        android:textSize="@dimen/_12sp" />
+
+    <TextView
+        android:id="@+id/item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:text=""
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textSize="@dimen/_16sp" />
+</RelativeLayout>

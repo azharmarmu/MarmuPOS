@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="azhar.sudha.marmupos.main.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <include
+        android:id="@+id/sales_holder"
+        layout="@layout/view_sales"
+        android:visibility="visible" />
+
+    <include
+        android:id="@+id/receipts_holder"
+        layout="@layout/view_receipts"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/items_holder"
+        layout="@layout/view_items"
+        android:visibility="gone" />
+
+    <!--<include
+        android:id="@+id/feedbacks_holder"
+        layout="@layout/view_feedbacks"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/settings_holder"
+        layout="@layout/view_settings"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/support_holder"
+        layout="@layout/view_support"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/share_holder"
+        layout="@layout/view_share"
+        android:visibility="gone" />-->
+
+</android.support.constraint.ConstraintLayout>
