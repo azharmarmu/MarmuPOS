@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,10 +9,15 @@
 
     <LinearLayout
         android:id="@+id/category_spinner_layout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/box_white"
-        android:padding="@dimen/_8dp">
+        android:padding="@dimen/_8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="0dp">
 
         <Spinner
             android:id="@+id/category_spinner"
@@ -24,10 +30,16 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_below="@+id/category_spinner_layout"
-        android:scrollbars="vertical" />
+        android:layout_marginTop="@dimen/_4dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category_spinner_layout" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/add_item"
@@ -37,7 +49,8 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/_16dp"
         android:padding="@dimen/_8dp"
-        android:src="@drawable/ic_add" />
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
