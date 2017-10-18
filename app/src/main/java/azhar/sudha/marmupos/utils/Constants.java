@@ -21,6 +21,9 @@ public class Constants {
     public static String ITEM = "item";
     public static String CATEGORY = "category";
 
+    /*Category fields*/
+    public static String color = "color";
+
     /*Items fields*/
     public static String ITEM_COLOR = "item_color";
     public static String ITEM_NAME = "item_name";
@@ -28,4 +31,21 @@ public class Constants {
     public static String ITEM_PRICE = "item_price";
     public static String ITEM_FAV = "item_fav";
 
+    /*Color*/
+    public static String GREY = "grey";
+    public static String RED = "red";
+    public static String GREEN = "green";
+    public static String BLUE = "blue";
+    public static String YELLOW = "yellow";
+    public static String SKY = "sky";
+    public static String ORANGE = "orange";
+    public static String PURPLE = "purple";
+
+    /*Shape*/
+    public static String BOX = "box";
+    public static String CIRCLE = "circle";
+    public static String CIRCLE_ZIG_ZAG = "circle_zig_zag";
+    public static String HEXAGON = "hexagon";
+
+    public static String ALL_CATEGORY = "All category";
 }

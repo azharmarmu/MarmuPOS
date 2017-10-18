@@ -13,6 +13,7 @@ import azhar.sudha.marmupos.main.MainActivity;
 
 import static azhar.sudha.marmupos.utils.DBUtils.DB_LoginUser;
 import static azhar.sudha.marmupos.utils.DBUtils.mAuth;
+import static azhar.sudha.marmupos.utils.ViewUtils.Stringify;
 import static azhar.sudha.marmupos.utils.ViewUtils.checkEmptyOnMandatoryField;
 
 public class LoginActivity extends AppCompatActivity {
@@ -39,6 +40,6 @@ public class LoginActivity extends AppCompatActivity {
         checkEmptyOnMandatoryField(etMail);
         checkEmptyOnMandatoryField(etPassword);
 
-        DB_LoginUser(etMail.getText().toString(), etPassword.getText().toString(), LoginActivity.this);
+        DB_LoginUser(Stringify(etMail), Stringify(etPassword), LoginActivity.this);
     }
 }

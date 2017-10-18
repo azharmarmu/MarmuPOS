@@ -1,5 +1,6 @@
 package azhar.sudha.marmupos.category;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,8 +8,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.HashMap;
+import java.util.List;
 
 import azhar.sudha.marmupos.R;
+import azhar.sudha.marmupos.main.model.CategoryModel;
+import azhar.sudha.marmupos.utils.Constants;
 
 
 /**
@@ -17,9 +21,11 @@ import azhar.sudha.marmupos.R;
 
 class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyViewHolder> {
 
-    private HashMap<String, Object> categories;
+    private Context context;
+    private List<CategoryModel> categories;
 
-    CategoryAdapter(HashMap<String, Object> categories) {
+    CategoryAdapter(Context context, List<CategoryModel> categories) {
+        this.context = context;
         this.categories = categories;
     }
 
@@ -32,7 +38,33 @@ class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyViewHolder>
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
+        CategoryModel categoryModel = categories.get(position);
         holder.categoryPrice.setVisibility(View.GONE);
+        HashMap<String, Object> categoryDetail = categoryModel.getCategoryMap();
+        selectColor(holder.categoryColor, String.valueOf(categoryDetail.get(Constants.color)));
+        holder.categoryName.setText(categoryModel.getName());
+    }
+
+    private void selectColor(TextView categoryColor, String color) {
+        if (color.equalsIgnoreCase(Constants.GREY)) {
+            categoryColor.setBackgroundResource(R.color.colorGray);
+        } else if (color.equalsIgnoreCase(Constants.RED)) {
+            categoryColor.setBackgroundResource(R.color.colorRed);
+        } else if (color.equalsIgnoreCase(Constants.GREEN)) {
+            categoryColor.setBackgroundResource(R.color.colorGreen);
+        } else if (color.equalsIgnoreCase(Constants.BLUE)) {
+            categoryColor.setBackgroundResource(R.color.colorBlue);
+        } else if (color.equalsIgnoreCase(Constants.YELLOW)) {
+            categoryColor.setBackgroundResource(R.color.colorYellow);
+        } else if (color.equalsIgnoreCase(Constants.SKY)) {
+            categoryColor.setBackgroundResource(R.color.colorSky);
+        } else if (color.equalsIgnoreCase(Constants.ORANGE)) {
+            categoryColor.setBackgroundResource(R.color.colorOrange);
+        } else if (color.equalsIgnoreCase(Constants.PURPLE)) {
+            categoryColor.setBackgroundResource(R.color.colorPurple);
+        } else {
+            categoryColor.setBackgroundResource(R.color.colorGray);
+        }
 
     }
 

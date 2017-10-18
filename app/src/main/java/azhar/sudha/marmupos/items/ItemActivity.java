@@ -11,19 +11,20 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import azhar.sudha.marmupos.R;
 import azhar.sudha.marmupos.interfaces.CategoryListListener;
+import azhar.sudha.marmupos.main.model.CategoryModel;
 import azhar.sudha.marmupos.main.view.Items;
+import azhar.sudha.marmupos.utils.Constants;
 
 public class ItemActivity extends AppCompatActivity implements CategoryListListener {
 
     Spinner spinnerCategories;
     RecyclerView recyclerView;
 
-    HashMap<String, Object> categoryList;
+    List<CategoryModel> categoryList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +33,15 @@ public class ItemActivity extends AppCompatActivity implements CategoryListListe
 
         Items.categoryListener(this);
 
-        this.categoryList = Items.categoryList;
-        getCategories();
+        spinnerCategories = (Spinner) findViewById(R.id.category_spinner);
 
-        FloatingActionButton addItem = (FloatingActionButton) findViewById(R.id.add_category);
+        FloatingActionButton addItem = (FloatingActionButton) findViewById(R.id.add_item);
         addItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ItemActivity.this, AddItemActivity.class));
             }
         });
-
-        spinnerCategories = (Spinner) findViewById(R.id.category_spinner);
 
         spinnerCategories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -63,9 +61,10 @@ public class ItemActivity extends AppCompatActivity implements CategoryListListe
 
     private void getCategories() {
         List<String> categories = new ArrayList<>();
-
-        for (String key : categoryList.keySet()) {
-            categories.add(key);
+        categories.add(0, Constants.ALL_CATEGORY);
+        for (int i = 0; i < categoryList.size(); i++) {
+            CategoryModel categoryModel = categoryList.get(i);
+            categories.add(categoryModel.getName());
         }
 
         ArrayAdapter<String> nameAdapter = new ArrayAdapter<>(ItemActivity.this,
@@ -75,8 +74,15 @@ public class ItemActivity extends AppCompatActivity implements CategoryListListe
     }
 
     @Override
-    public void getCategoryList(HashMap<String, Object> categoryList) {
+    public void getCategoryList(List<CategoryModel> categoryList) {
         this.categoryList = categoryList;
+        getCategories();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        this.categoryList = Items.categoryList;
         getCategories();
     }
 }

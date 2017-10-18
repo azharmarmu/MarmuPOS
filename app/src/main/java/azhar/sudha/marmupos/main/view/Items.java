@@ -10,14 +10,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import azhar.sudha.marmupos.R;
 import azhar.sudha.marmupos.category.CategoryActivity;
 import azhar.sudha.marmupos.interfaces.CategoryListListener;
 import azhar.sudha.marmupos.items.ItemActivity;
 import azhar.sudha.marmupos.main.MainActivity;
-import azhar.sudha.marmupos.utils.Constants;
+import azhar.sudha.marmupos.main.model.CategoryModel;
 import azhar.sudha.marmupos.utils.DBUtils;
 
 /**
@@ -27,7 +29,7 @@ import azhar.sudha.marmupos.utils.DBUtils;
 @SuppressWarnings({"ConstantConditions", "unchecked"})
 public class Items {
 
-    public static HashMap<String, Object> categoryList;
+    public static List<CategoryModel> categoryList = new ArrayList<>();
 
     public void evaluate(final MainActivity activity, View itemView) {
         RelativeLayout itemLayout = itemView.findViewById(R.id.item_layout);
@@ -48,15 +50,20 @@ public class Items {
         });
 
 
-        DatabaseReference categoryRef = DBUtils.DATABASE.getReference(DBUtils.mAuth.getCurrentUser().getUid()).child(Constants.CATEGORY);
+        DatabaseReference categoryRef = DBUtils.DATABASE.getReference(DBUtils.mAuth.getCurrentUser().getUid());
         categoryRef.keepSynced(true);
 
         categoryRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() != null) {
-                    categoryList = (HashMap<String, Object>) dataSnapshot.getValue();
-                    categorylistListener.getCategoryList(categoryList);
+                    HashMap<String, Object> categoryMap = (HashMap<String, Object>) dataSnapshot.getValue();
+                    for (String key : categoryMap.keySet()) {
+                        HashMap<String, Object> category = (HashMap<String, Object>) categoryMap.get(key);
+                        categoryList.add(new CategoryModel(key, category));
+                    }
+                    if (categorylistListener != null)
+                        categorylistListener.getCategoryList(categoryList);
                 }
             }
 

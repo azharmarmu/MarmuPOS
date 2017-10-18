@@ -25,7 +25,7 @@
     <string name="charge_0_00">Charge 0.00</string>
     <string name="_0">0</string>
     <string name="fav_no_msg">Add to Favorites the most popular items.  For this go to the items list and click on the star icon opposite the item</string>
-    <string name="ok">ok</string>
+    <string name="ok">OK</string>
     <string name="no_items">No Items</string>
     <string name="item">Item</string>
     <string name="category">Category</string>
@@ -34,4 +34,6 @@
     <string name="category_color">Category Color</string>
     <string name="save">Save</string>
     <string name="this_color_will_automatically_apply_to_all_the_items_under_the_categories_for_which_no_custom_color_is_set">This color will automatically apply to all the items under the categories for which no custom color is set</string>
+    <string name="search">Search</string>
+    <string name="price_desc">Leave the field blank to indicate the price upon sale</string>
 </resources>

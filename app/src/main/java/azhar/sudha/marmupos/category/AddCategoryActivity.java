@@ -8,37 +8,24 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import azhar.sudha.marmupos.R;
+import java.util.HashMap;
 
+import azhar.sudha.marmupos.R;
+import azhar.sudha.marmupos.utils.Constants;
+
+import static azhar.sudha.marmupos.utils.DBUtils.DATABASE;
+import static azhar.sudha.marmupos.utils.DBUtils.mAuth;
+import static azhar.sudha.marmupos.utils.ViewUtils.Stringify;
+
+@SuppressWarnings("ConstantConditions")
 public class AddCategoryActivity extends AppCompatActivity {
+
+    private String categoryColor = "grey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_category);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.create_category_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-
-            case R.id.action_category_save:
-                saveCategory();
-                break;
-            default:
-                break;
-        }
-        return true;
-    }
-
-    private void saveCategory() {
-        EditText categoryName = (EditText) findViewById(R.id.category_name);
     }
 
     public void colorClick(View view) {
@@ -62,7 +49,62 @@ public class AddCategoryActivity extends AppCompatActivity {
         colorPurple.setImageDrawable(null);
 
         ImageView imageView = (ImageView) view;
-        imageView.setImageDrawable(getDrawable(R.drawable.ic_check_circle));
+        imageView.setImageDrawable(getDrawable(R.drawable.ic_check_white));
 
+        switch (imageView.getId()) {
+            case R.id.color_grey:
+                categoryColor = Constants.GREY;
+                break;
+            case R.id.color_red:
+                categoryColor = Constants.RED;
+                break;
+            case R.id.color_green:
+                categoryColor = Constants.GREEN;
+                break;
+            case R.id.color_blue:
+                categoryColor = Constants.BLUE;
+                break;
+            case R.id.color_yellow:
+                categoryColor = Constants.YELLOW;
+                break;
+            case R.id.color_sky:
+                categoryColor = Constants.SKY;
+                break;
+            case R.id.color_orange:
+                categoryColor = Constants.ORANGE;
+                break;
+            case R.id.color_purple:
+                categoryColor = Constants.PURPLE;
+                break;
+            default:
+                categoryColor = Constants.GREY;
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.create_category_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.action_category_save:
+                saveCategory();
+                finish();
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
+
+    private void saveCategory() {
+        EditText categoryName = (EditText) findViewById(R.id.category_name);
+        HashMap<String, Object> category = new HashMap<>();
+        category.put(Constants.color, categoryColor);
+        DATABASE.getReference(mAuth.getCurrentUser().getUid()).child(Stringify(categoryName)).updateChildren(category);
     }
 }

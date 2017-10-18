@@ -23,8 +23,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".items.ItemActivity" />
         <activity android:name=".category.CategoryActivity" />
-        <activity android:name=".category.AddCategoryActivity" />
-        <activity android:name=".items.AddItemActivity"></activity>
+        <activity
+            android:name=".category.AddCategoryActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".items.AddItemActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
     </application>
 
 </manifest>
